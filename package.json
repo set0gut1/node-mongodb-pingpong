@@ -1,0 +1,10 @@
+{
+  "name": "node-mongodb-pingpong",
+  "version": "1.0.0",
+  "description": "Measure latency of mongodb by repeating one request",
+  "main": "index.js",
+  "repository": "git@github.com:set0gut1/node-mongodb-pingpong.git",
+  "author": "Tsukasa Setoguchi <tsukasa.setoguchi@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
