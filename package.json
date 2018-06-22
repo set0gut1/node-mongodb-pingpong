@@ -9,5 +9,8 @@
   "private": true,
   "dependencies": {
     "mongodb": "2.2.35"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
   }
 }
