@@ -9,9 +9,11 @@
   "private": true,
   "scripts": {
     "build": "babel src -d dist",
-    "format": "prettier-standard 'src/**/*.js'"
+    "format": "prettier-standard 'src/**/*.js'",
+    "benchmark": "node dist/index.js"
   },
   "dependencies": {
+    "moment": "^2.22.2",
     "mongodb": "2.2.35"
   },
   "devDependencies": {
