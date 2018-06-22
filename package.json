@@ -7,10 +7,14 @@
   "author": "Tsukasa Setoguchi <tsukasa.setoguchi@gmail.com>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "build": "babel src -d dist"
+  },
   "dependencies": {
     "mongodb": "2.2.35"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0"
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
   }
 }
