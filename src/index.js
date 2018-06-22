@@ -24,10 +24,9 @@ const main = async () => {
     await collection.insert({ foo: randomInt })
     while (true) {
       const requestBeginTime = moment()
-      const result = await collection.find({ foo: randomInt })
+      const result = await collection.findOne({ foo: randomInt })
       const requestCompleteTime = moment()
-      const data = await result.toArray()
-      assert.equal(data[0].foo, randomInt)
+      assert.equal(result.foo, randomInt)
       const timeFromBase = requestBeginTime - baseTime
       const latency = requestCompleteTime - requestBeginTime
       console.log(`${timeFromBase}\t${latency}`)
