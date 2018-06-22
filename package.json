@@ -8,6 +8,6 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "mongodb": "^3.0.10"
+    "mongodb": "2.2.35"
   }
 }
