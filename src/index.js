@@ -18,7 +18,6 @@ const randomInt = Math.ceil(Math.random() * 100000)
 const main = async () => {
   let db
   let collection
-  let errorCount = 10
   try {
     db = await MongoClient.connect(HOSTNAME)
     collection = db.collection('test')
@@ -26,10 +25,10 @@ const main = async () => {
     await collection.insert({ foo: randomInt })
     db.close()
     while (true) {
+      const requestBeginTime = moment()
       try {
         db = await MongoClient.connect(HOSTNAME)
         collection = db.collection('test')
-        const requestBeginTime = moment()
         const result = await collection.findOne({ foo: randomInt })
         const requestCompleteTime = moment()
         assert.equal(result.foo, randomInt)
@@ -38,11 +37,9 @@ const main = async () => {
         console.log(`${timeFromBase}\t${latency}`)
         db.close()
       } catch (err) {
-        console.error(err)
-        errorCount -= 1
-        if (errorCount <= 0) {
-          throw err
-        }
+        const timeFromBase = requestBeginTime - baseTime
+        console.log(`${timeFromBase}\t${JSON.stringify(err)}`)
+        db.close()
       }
     }
   } catch (err) {
